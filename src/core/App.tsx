@@ -16,6 +16,8 @@ const App = () => {
     console.log(selectedFont);
     console.log(words);
 
+    if (error) return <p>Please connect to a network</p>;
+
     return (
         <Box fontFamily={selectedFont}>
             <MaxContainer>
