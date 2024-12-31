@@ -2,6 +2,9 @@ import { MdAudiotrack } from "react-icons/md";
 import { FetchReponse } from "@/types/WordTypes";
 import { Box, Card, HStack, Icon, Text } from "@chakra-ui/react";
 import useSound from "use-sound";
+import WordDefinitionCard from "./WordDefinitionCard";
+import WordSynonymsCard from "./WordSynonymsCard";
+import WordAntonymCard from "./WordAntonymCard";
 
 type Props = {
     word: FetchReponse;
@@ -49,50 +52,8 @@ const WordCard = ({ word }: Props) => {
                             <Box key={key}>
                                 <Box paddingBottom={"10px"}>
                                     <Box paddingBlock={"20px"}>
-                                        <Box>
-                                            <Text
-                                                fontSize={"1rem"}
-                                                color={"gray.400"}
-                                                fontWeight={"500"}
-                                            >
-                                                Antonyms
-                                            </Text>
-                                            {antonyms.length > 1 ? (
-                                                antonyms.map((antonym) => (
-                                                    <Text
-                                                        fontSize={".9rem"}
-                                                        display={"inline"}
-                                                        marginRight={"5px"}
-                                                    >
-                                                        {antonym}
-                                                    </Text>
-                                                ))
-                                            ) : (
-                                                <Text>N/A</Text>
-                                            )}
-                                        </Box>
-                                        <Box>
-                                            <Text
-                                                fontSize={"1rem"}
-                                                color={"gray.400"}
-                                                fontWeight={"500"}
-                                            >
-                                                Synonyms
-                                            </Text>
-                                            {synonyms.length > 1 ? (
-                                                synonyms.map((synonym) => (
-                                                    <Text
-                                                        fontSize={".9rem"}
-                                                        display={"inline"}
-                                                        marginRight={"5px"}
-                                                    >
-                                                        {synonym}
-                                                    </Text>
-                                                ))
-                                            ) : (
-                                                <Text>N/A</Text>
-                                            )}
-                                        </Box>
+                                        <WordAntonymCard antonyms={antonyms} />
+                                        <WordSynonymsCard synonyms={synonyms} />
                                     </Box>
 
                                     <Text
@@ -103,23 +64,12 @@ const WordCard = ({ word }: Props) => {
                                         {partOfSpeech}
                                     </Text>
                                 </Box>
-                                {definitions.map(
-                                    ({ example, definition }, key) => (
-                                        <Box key={key}>
-                                            <Text>{definition}</Text>
-                                            <Text
-                                                paddingBlock={"5px"}
-                                                fontSize={".75rem"}
-                                                color={"gray.400"}
-                                            >
-                                                Example: {""}
-                                                {example
-                                                    ? example
-                                                    : "Not Available"}
-                                            </Text>
-                                        </Box>
-                                    )
-                                )}
+                                {definitions.map((definition, key) => (
+                                    <WordDefinitionCard
+                                        key={key}
+                                        definition={definition}
+                                    />
+                                ))}
                             </Box>
                         )
                     )}
