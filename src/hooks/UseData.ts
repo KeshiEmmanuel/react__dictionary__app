@@ -9,21 +9,24 @@ function UseData(searchString: string) {
 
     useEffect(() => {
         const controller = new AbortController();
-        axios
-            .get<FetchReponse[]>(
-                `https://api.dictionaryapi.dev/api/v2/entries/en/${searchString}`,
-                { signal: controller.signal }
-            )
-            .then((response) => {
-                setData(response.data);
-                setisLoading(false);
-            })
-            .catch((error) => {
-                if (error instanceof CanceledError) return;
-                setError(error.message);
-                setisLoading(false);
-            });
-
+        if (searchString) {
+            axios
+                .get<FetchReponse[]>(
+                    `https://api.dictionaryapi.dev/api/v2/entries/en/${searchString}`,
+                    { signal: controller.signal }
+                )
+                .then((response) => {
+                    setData(response.data);
+                    setisLoading(false);
+                })
+                .catch((error) => {
+                    if (error instanceof CanceledError) return;
+                    setError(error.message);
+                    setisLoading(false);
+                });
+        } else {
+            setisLoading(false);
+        }
         return () => controller.abort();
     }, [searchString]);
 

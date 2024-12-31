@@ -1,6 +1,6 @@
-import { MdAudiotrack, MdMusicOff } from "react-icons/md";
+import { MdAudiotrack } from "react-icons/md";
 import { FetchReponse } from "@/types/WordTypes";
-import { Box, Card, HStack, Icon, Text, VStack } from "@chakra-ui/react";
+import { Box, Card, HStack, Icon, Text } from "@chakra-ui/react";
 import useSound from "use-sound";
 
 type Props = {

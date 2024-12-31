@@ -1,25 +1,57 @@
-import { Box, Card, HStack, Stack, VStack } from "@chakra-ui/react";
-import { Skeleton, SkeletonCircle, SkeletonText } from "./ui/skeleton";
+import { Card, Stack, VStack } from "@chakra-ui/react";
+import { Skeleton, SkeletonText } from "./ui/skeleton";
 
 const WordCardSkeleton = () => {
     return (
-        <Card.Root width={"full"}>
+        <Card.Root width={"full"} paddingInline={"20px"}>
             <Card.Header height={"full"}>
                 <Stack width={"full"} maxW={"lg"}>
                     <VStack alignItems={"start"}>
-                        <Skeleton height={"50px"} width={"50%"} />
+                        <Skeleton
+                            variant={"shine"}
+                            height={"50px"}
+                            width={"50%"}
+                        />
                         <SkeletonText noOfLines={1} width={"40%"} />
                     </VStack>
                 </Stack>
             </Card.Header>
             <Card.Body>
-                <SkeletonText noOfLines={1} marginBottom={"10px"} />
-                <SkeletonText noOfLines={2} marginBottom={"10px"} />
-                <SkeletonText noOfLines={1} marginBottom={"10px"} />
-                <SkeletonText noOfLines={2} marginBottom={"10px"} />
-                <SkeletonText noOfLines={1} marginBottom={"10px"} />
-                <SkeletonText noOfLines={2} marginBottom={"10px"} />
-                <SkeletonText noOfLines={1} marginBottom={"10px"} />
+                <SkeletonText
+                    variant={"shine"}
+                    noOfLines={1}
+                    marginBottom={"10px"}
+                />
+                <SkeletonText
+                    variant={"shine"}
+                    noOfLines={2}
+                    marginBottom={"10px"}
+                />
+                <SkeletonText
+                    variant={"shine"}
+                    noOfLines={1}
+                    marginBottom={"10px"}
+                />
+                <SkeletonText
+                    variant={"shine"}
+                    noOfLines={2}
+                    marginBottom={"10px"}
+                />
+                <SkeletonText
+                    variant={"shine"}
+                    noOfLines={1}
+                    marginBottom={"10px"}
+                />
+                <SkeletonText
+                    variant={"shine"}
+                    noOfLines={2}
+                    marginBottom={"10px"}
+                />
+                <SkeletonText
+                    variant={"shine"}
+                    noOfLines={1}
+                    marginBottom={"10px"}
+                />
             </Card.Body>
         </Card.Root>
     );
