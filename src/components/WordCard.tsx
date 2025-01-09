@@ -15,7 +15,11 @@ const WordCard = ({ word }: Props) => {
     const [playSound] = useSound(audio);
 
     return (
-        <Card.Root paddingInline={"20px"}>
+        <Card.Root
+            marginBottom={"10px"}
+            paddingInline={"40px"}
+            paddingBlock={"30px"}
+        >
             <Card.Header>
                 <HStack justifyContent={"space-between"}>
                     <Box>

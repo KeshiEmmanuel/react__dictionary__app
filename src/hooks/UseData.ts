@@ -4,12 +4,17 @@ import { useEffect, useState } from "react";
 
 function UseData(searchString: string) {
     const [data, setData] = useState<FetchReponse[]>([]);
-    const [isLoading, setisLoading] = useState<boolean>(true);
+    const [isLoading, setisLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
+    console.log(searchString);
 
     useEffect(() => {
         const controller = new AbortController();
-        if (searchString) {
+        if (!searchString) {
+            setisLoading(false);
+            setData([]);
+        } else {
+            setisLoading(true);
             axios
                 .get<FetchReponse[]>(
                     `https://api.dictionaryapi.dev/api/v2/entries/en/${searchString}`,
@@ -24,9 +29,8 @@ function UseData(searchString: string) {
                     setError(error.message);
                     setisLoading(false);
                 });
-        } else {
-            setisLoading(false);
         }
+
         return () => controller.abort();
     }, [searchString]);
 

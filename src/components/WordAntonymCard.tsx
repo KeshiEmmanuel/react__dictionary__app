@@ -13,6 +13,7 @@ function WordAntonymCard({ antonyms }: Props) {
             {antonyms.length > 1 ? (
                 antonyms.map((antonym) => (
                     <Text
+                        key={antonym}
                         fontSize={".9rem"}
                         display={"inline"}
                         marginRight={"5px"}

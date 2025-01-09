@@ -23,18 +23,25 @@ const FontsMenu = ({ onSelectedFont, selectedFont }: Props) => {
             size={"lg"}
             width={"150px"}
         >
-            <SelectTrigger>
+            <SelectTrigger padding={"10px"}>
                 <SelectLabel>{selectedFont || "Select font"}</SelectLabel>
                 <Icon>
                     <BsChevronDown />
                 </Icon>
             </SelectTrigger>
-            <SelectContent position={"absolute"} top={"40px"} width={"100%"}>
+            <SelectContent
+                paddingX={"20px"}
+                paddingY={"5px"}
+                position={"absolute"}
+                top={"40px"}
+                width={"100%"}
+            >
                 {frameworks.items.map((fonts) => (
                     <SelectItem
                         onClick={() => onSelectedFont(fonts.value)}
                         key={fonts.label}
                         item={fonts}
+                        paddingY={"5px"}
                     >
                         {fonts.value}
                     </SelectItem>

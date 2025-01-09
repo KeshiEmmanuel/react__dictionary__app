@@ -13,10 +13,7 @@ const App = () => {
 
     const { data: words, isLoading, error } = UseData(searchString);
 
-    console.log(selectedFont);
-    console.log(words);
-
-    if (error) return <p>Please connect to a network</p>;
+    if (error) return <p>Please connect to a network | {error}</p>;
 
     return (
         <Box fontFamily={selectedFont}>
@@ -30,9 +27,10 @@ const App = () => {
                 />
                 <Box marginBlock={"30px"}>
                     {isLoading && <WordCardSkeleton />}
-                    {words.map((word, i) => (
-                        <WordCard word={word} key={i} />
-                    ))}
+                    {words &&
+                        words.map((word, i) => (
+                            <WordCard word={word} key={i} />
+                        ))}
                 </Box>
             </MaxContainer>
         </Box>

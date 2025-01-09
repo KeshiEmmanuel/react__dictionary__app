@@ -5,5 +5,13 @@ type Props = {
 };
 
 export default function MaxContainer({ children }: Props) {
-    return <Container maxWidth={"700px"}>{children}</Container>;
+    return (
+        <Container
+            maxWidth={"700px"}
+            paddingInline={"1rem"}
+            marginInline={"auto"}
+        >
+            {children}
+        </Container>
+    );
 }

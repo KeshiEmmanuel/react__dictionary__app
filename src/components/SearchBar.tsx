@@ -19,6 +19,7 @@ const SearchBar = ({ onSearch }: Props) => {
             <InputGroup width={"100%"}>
                 <Input
                     ref={inputRef}
+                    padding={"10px"}
                     variant={"subtle"}
                     placeholder="Any word..."
                     border={"none"}

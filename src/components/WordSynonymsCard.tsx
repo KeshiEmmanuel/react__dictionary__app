@@ -13,6 +13,7 @@ const WordSynonymsCard = ({ synonyms }: Props) => {
             {synonyms.length > 1 ? (
                 synonyms.map((synonym) => (
                     <Text
+                        key={synonym}
                         fontSize={".9rem"}
                         display={"inline"}
                         marginRight={"5px"}
